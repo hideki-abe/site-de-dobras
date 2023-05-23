@@ -7,6 +7,7 @@ import dobrau from '../public/dobra-u.png'
 import dobraaba from '../public/dobra-aba.png'
 import dobrazInterno from '../public/dobra-z-interno.png'
 import React, { useEffect, useState } from "react";
+import "bootswatch/dist/minty/bootstrap.min.css"
 
 export default function Home() {
 
@@ -86,9 +87,21 @@ const submitD = () => {
 }
 
     return (
+      <>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">Aços Yamada</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+
+        </div>
+        </div>
+      </nav>
       <main style={{marginTop: '3em', marginLeft: '1em'}}>
         <div className='box'>
-          <h2>DOBRA Z COM B EXTERNO</h2>
+          <h3>DOBRA Z COM B EXTERNO</h3>
           <Image src={dobraz} style={{height:'200px', width:'300px'}}></Image>
           <form style={{marginTop: '20px'}}>
             <div>
@@ -99,7 +112,6 @@ const submitD = () => {
               onChange={e => handleChangeA(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida B: </label>
               <input
@@ -108,7 +120,6 @@ const submitD = () => {
               onChange={e => handleChangeA(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida C: </label>
               <input
@@ -117,7 +128,6 @@ const submitD = () => {
               onChange={e => handleChangeA(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Espessura da chapa: </label>
               <input 
@@ -133,10 +143,10 @@ const submitD = () => {
           >
           CALCULAR
           </button>
-          <h2>RESULTADO: {valor.resultado}</h2>
+          <h4>RESULTADO: {valor.resultado}</h4>
           </div>
           <div className='box'>
-            <h2>DOBRA U COM ABA COM A, B, C E D EXTERNOS</h2>
+            <h3>DOBRA U COM ABA COM A, B, C E D EXTERNOS</h3>
             <Image src={dobraaba} style={{height:'230px', width:'300px'}}></Image>
             <form>
             <div>
@@ -147,7 +157,6 @@ const submitD = () => {
               onChange={e => handleChangeB(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida B: </label>
               <input
@@ -156,7 +165,6 @@ const submitD = () => {
               onChange={e => handleChangeB(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida C: </label>
               <input
@@ -165,7 +173,6 @@ const submitD = () => {
               onChange={e => handleChangeB(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida D: </label>
               <input
@@ -174,7 +181,6 @@ const submitD = () => {
               onChange={e => handleChangeB(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Espessura da chapa: </label>
               <input 
@@ -190,10 +196,10 @@ const submitD = () => {
           >
           CALCULAR
           </button>
-          <h2 style={{marginBottom: '2em'}}>RESULTADO: {valor2.aba_resultado}</h2>
+          <h4 style={{marginBottom: '2em'}}>RESULTADO: {valor2.aba_resultado}</h4>
           </div>
           <div className='box'>
-            <h2>DOBRA U SEM ABA</h2>
+            <h3>DOBRA U SEM ABA</h3>
             <Image src={dobrau} style={{height:'230px', width:'300px'}}></Image>
             <form>
             <div>
@@ -204,7 +210,6 @@ const submitD = () => {
               onChange={e => handleChangeC(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida B: </label>
               <input
@@ -213,7 +218,6 @@ const submitD = () => {
               onChange={e => handleChangeC(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida C: </label>
               <input
@@ -222,7 +226,6 @@ const submitD = () => {
               onChange={e => handleChangeC(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Espessura da chapa: </label>
               <input 
@@ -238,10 +241,10 @@ const submitD = () => {
           >
           CALCULAR
           </button>
-          <h2 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h2>
+          <h4 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h4>
           </div>
           <div className='box'>
-            <h2>DOBRA Z COM B INTERNO</h2>
+            <h3>DOBRA Z COM B INTERNO</h3>
             <Image src={dobrazInterno} style={{height:'230px', width:'300px'}}></Image>
             <form>
             <div>
@@ -252,7 +255,6 @@ const submitD = () => {
               onChange={e => handleChangeC(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida B: </label>
               <input
@@ -261,7 +263,6 @@ const submitD = () => {
               onChange={e => handleChangeC(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Medida C: </label>
               <input
@@ -270,7 +271,6 @@ const submitD = () => {
               onChange={e => handleChangeC(e)}>
               </input>
             </div>
-            <br></br>
             <div>
               <label>Espessura da chapa: </label>
               <input 
@@ -286,8 +286,9 @@ const submitD = () => {
           >
           CALCULAR
           </button>
-          <h2 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h2>
+          <h4 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h4>
           </div>
       </main>
+      </>
     )
 }
