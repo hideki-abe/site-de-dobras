@@ -88,13 +88,13 @@ const submitD = () => {
 
     return (
       <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="#">Aços Yamada</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container-fluid">
+        <a className="navbar-brand" href="#">AÇOS YAMADA COMÉRCIO DE FERROS</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
+        <div className="collapse navbar-collapse" id="navbarColor01">
 
         </div>
         </div>
@@ -138,7 +138,7 @@ const submitD = () => {
             </div>
           </form>
           <button 
-          style={{marginTop: '1em'}}
+          className='btn btn-primary'
           onClick={submitA}
           >
           CALCULAR
@@ -190,13 +190,13 @@ const submitD = () => {
               </input>
             </div>
           </form>
-          <button 
-          style={{marginTop: '1em'}}
+          <button
+          className='btn btn-primary' 
           onClick={submitB}
           >
           CALCULAR
           </button>
-          <h4 style={{marginBottom: '2em'}}>RESULTADO: {valor2.aba_resultado}</h4>
+          <h4>RESULTADO: {valor2.aba_resultado}</h4>
           </div>
           <div className='box'>
             <h3>DOBRA U SEM ABA</h3>
@@ -235,13 +235,13 @@ const submitD = () => {
               </input>
             </div>
           </form>
-          <button 
-          style={{marginTop: '1em'}}
+          <button
+          className='btn btn-primary' 
           onClick={submitC}
           >
           CALCULAR
           </button>
-          <h4 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h4>
+          <h4>RESULTADO: {valor3.dobrau_resultado}</h4>
           </div>
           <div className='box'>
             <h3>DOBRA Z COM B INTERNO</h3>
@@ -280,13 +280,13 @@ const submitD = () => {
               </input>
             </div>
           </form>
-          <button 
-          style={{marginTop: '1em'}}
+          <button
+          className='btn btn-primary' 
           onClick={submitC}
           >
           CALCULAR
           </button>
-          <h4 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h4>
+          <h4>RESULTADO: {valor3.dobrau_resultado}</h4>
           </div>
       </main>
       </>
