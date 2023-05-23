@@ -5,17 +5,18 @@ import styles from './page.module.css'
 import dobraz from '../public/dobra-z.png'
 import dobrau from '../public/dobra-u.png'
 import dobraaba from '../public/dobra-aba.png'
+import dobrazInterno from '../public/dobra-z-interno.png'
 import React, { useEffect, useState } from "react";
 
 export default function Home() {
 
 
- const valorInicialDobraUOuZ = {
-  a: 0,
-  b: 0,
-  c: 0,
-  d: 0,
-  resultado: 0
+ const valorInicialDobraZExterno = {
+  dobraz_a: 0,
+  dobraz_b: 0,
+  dobraz_c: 0,
+  dobraz_espessura: 0,
+  dobraz_resultado: 0
  }
 
  const valorInicialDobraAba = {
@@ -35,7 +36,15 @@ export default function Home() {
   dobrau_resultado: 0
  }
 
- const [valor, setValor] = useState(valorInicialDobraUOuZ)
+ const valorInicialDobraZInterno = {
+  dobrazInterno_a: 0,
+  dobrazInterno_b: 0,
+  dobrazInterno_c: 0,
+  dobrazInterno_espessura: 0,
+  dobrazInterno_resultado: 0
+ }
+
+ const [valor, setValor] = useState(valorInicialDobraZExterno)
  const [valor2, setValor2] = useState(valorInicialDobraAba)
  const [valor3, setValor3] = useState(valorInicialDobraU)
 
@@ -55,7 +64,7 @@ export default function Home() {
  }
 
  const submitA = () => {
-  const desconto = parseInt(valor.a) + parseInt(valor.b) + parseInt(valor.c) - parseInt(4*(valor.d))
+  const desconto = parseInt(valor.dobraz_a) + parseInt(valor.dobraz_b) + parseInt(valor.dobraz_c) - parseInt(4*(valor.dobraz_espessura))
   setValor({...valor, ["resultado"]: desconto})
 }
 
@@ -68,19 +77,24 @@ const submitB = () => {
 const submitC = () => {
   const desconto = parseInt(valor3.dobrau_a) + parseInt(valor3.dobrau_b) + 
                     parseInt(valor3.dobrau_c) - parseInt(4*(valor3.dobrau_espessura))
-  setValor3({...valor2, ["aba_resultado"]: desconto})
+  setValor3({...valor3, ["dobrau_resultado"]: desconto})
+}
+
+const submitD = () => {
+  const desconto = parseInt(valor.dobrazInterno_a) + parseInt(valor.dobrazInterno_b) + parseInt(valor.dobrazInterno_c) - parseInt(4*(valor.dobrazInterno_espessura))
+  setValor({...valor4, ["dobrazInterno_resultado"]: desconto})
 }
 
     return (
       <main style={{marginTop: '3em', marginLeft: '1em'}}>
         <div className='box'>
-          <h2>DOBRA Z OU U</h2>
+          <h2>DOBRA Z COM B EXTERNO</h2>
           <Image src={dobraz} style={{height:'200px', width:'300px'}}></Image>
           <form style={{marginTop: '20px'}}>
             <div>
               <label>Medida A: </label>
               <input 
-              name="a"
+              name="dobraz_a"
               type="number"
               onChange={e => handleChangeA(e)}>
               </input>
@@ -89,7 +103,7 @@ const submitC = () => {
             <div>
               <label>Medida B: </label>
               <input
-              name="b" 
+              name="dobraz_b" 
               type={'number'}
               onChange={e => handleChangeA(e)}>
               </input>
@@ -98,7 +112,7 @@ const submitC = () => {
             <div>
               <label>Medida C: </label>
               <input
-              name="c" 
+              name="dobraz_c" 
               type={'number'}
               onChange={e => handleChangeA(e)}>
               </input>
@@ -108,7 +122,7 @@ const submitC = () => {
               <label>Espessura da chapa: </label>
               <input 
               type={'number'}
-              name="d"
+              name="dobraz_espessura"
               onChange={e => handleChangeA(e)}>
               </input>
             </div>
@@ -122,7 +136,7 @@ const submitC = () => {
           <h2>RESULTADO: {valor.resultado}</h2>
           </div>
           <div className='box'>
-            <h2>DOBRA U COM ABA</h2>
+            <h2>DOBRA U COM ABA COM A, B, C E D EXTERNOS</h2>
             <Image src={dobraaba} style={{height:'230px', width:'300px'}}></Image>
             <form>
             <div>
@@ -181,6 +195,54 @@ const submitC = () => {
           <div className='box'>
             <h2>DOBRA U SEM ABA</h2>
             <Image src={dobrau} style={{height:'230px', width:'300px'}}></Image>
+            <form>
+            <div>
+              <label>Medida A: </label>
+              <input 
+              name="dobrau_a"
+              type="number"
+              onChange={e => handleChangeC(e)}>
+              </input>
+            </div>
+            <br></br>
+            <div>
+              <label>Medida B: </label>
+              <input
+              name="dobrau_b" 
+              type={'number'}
+              onChange={e => handleChangeC(e)}>
+              </input>
+            </div>
+            <br></br>
+            <div>
+              <label>Medida C: </label>
+              <input
+              name="dobrau_c" 
+              type={'number'}
+              onChange={e => handleChangeC(e)}>
+              </input>
+            </div>
+            <br></br>
+            <div>
+              <label>Espessura da chapa: </label>
+              <input 
+              type={'number'}
+              name="dobrau_espessura"
+              onChange={e => handleChangeC(e)}>
+              </input>
+            </div>
+          </form>
+          <button 
+          style={{marginTop: '1em'}}
+          onClick={submitC}
+          >
+          CALCULAR
+          </button>
+          <h2 style={{marginBottom: '2em'}}>RESULTADO: {valor3.dobrau_resultado}</h2>
+          </div>
+          <div className='box'>
+            <h2>DOBRA Z COM B INTERNO</h2>
+            <Image src={dobrazInterno} style={{height:'230px', width:'300px'}}></Image>
             <form>
             <div>
               <label>Medida A: </label>
