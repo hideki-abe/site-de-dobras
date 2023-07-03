@@ -48,6 +48,7 @@ export default function Home() {
  const [valor, setValor] = useState(valorInicialDobraZExterno)
  const [valor2, setValor2] = useState(valorInicialDobraAba)
  const [valor3, setValor3] = useState(valorInicialDobraU)
+ const [valor4, setValor4] = useState(valorInicialDobraZInterno)
 
  function handleChangeA(event) {
   const { name, value } = event.target;
@@ -62,6 +63,11 @@ export default function Home() {
  function handleChangeC(event) {
   const { name, value } = event.target;
   setValor3({...valor3, [name]: value});
+ }
+
+ function handleChangeD(event) {
+  const { name, value } = event.target;
+  setValor4({...valor4, [name]: value});
  }
 
  const submitA = () => {
@@ -82,8 +88,10 @@ const submitC = () => {
 }
 
 const submitD = () => {
-  const desconto = parseInt(valor.dobrazInterno_a) + parseInt(valor.dobrazInterno_b) + parseInt(valor.dobrazInterno_c) - parseInt(4*(valor.dobrazInterno_espessura))
-  setValor({...valor4, ["dobrazInterno_resultado"]: desconto})
+  const desconto = parseInt(valor4.dobrazInterno_a) + parseInt(valor4.dobrazInterno_b) + parseInt(valor4.dobrazInterno_c) - parseInt(4*(valor4.dobrazInterno_espessura))
+  setValor4({...valor4, ["dobrazInterno_resultado"]: desconto})
+  console.log(valor4)
+  console.log(desconto)
 }
 
     return (
@@ -102,8 +110,8 @@ const submitD = () => {
       <main style={{marginTop: '3em', marginLeft: '1em'}}>
         <div className='box'>
           <h3>DOBRA Z COM B EXTERNO</h3>
-          <Image src={dobraz} style={{height:'200px', width:'300px'}}></Image>
-          <form style={{marginTop: '20px'}}>
+          <Image className='img' src={dobraz}></Image>
+          <form >
             <div>
               <label>Medida A: </label>
               <input 
@@ -137,17 +145,21 @@ const submitD = () => {
               </input>
             </div>
           </form>
-          <button 
-          className='btn btn-primary'
-          onClick={submitA}
-          >
-          CALCULAR
-          </button>
-          <h4>RESULTADO: {valor.resultado}</h4>
+          <div className='teste'>
+            <div className='botao'>
+              <button 
+              className='btn btn-primary'
+              onClick={submitA}
+              >
+              CALCULAR
+              </button>
+            </div>
+            <h4>RESULTADO: {valor.resultado}</h4>
+            </div>
           </div>
           <div className='box'>
             <h3>DOBRA U COM ABA COM A, B, C E D EXTERNOS</h3>
-            <Image src={dobraaba} style={{height:'230px', width:'300px'}}></Image>
+            <Image className='img' src={dobraaba}></Image>
             <form>
             <div>
               <label>Medida A: </label>
@@ -190,17 +202,19 @@ const submitD = () => {
               </input>
             </div>
           </form>
-          <button
-          className='btn btn-primary' 
-          onClick={submitB}
-          >
-          CALCULAR
-          </button>
+          <div className='botao'>
+            <button
+            className='btn btn-primary' 
+            onClick={submitB}
+            >
+            CALCULAR
+            </button>
+          </div>
           <h4>RESULTADO: {valor2.aba_resultado}</h4>
           </div>
           <div className='box'>
             <h3>DOBRA U SEM ABA</h3>
-            <Image src={dobrau} style={{height:'230px', width:'300px'}}></Image>
+            <Image className='img' src={dobrau}></Image>
             <form>
             <div>
               <label>Medida A: </label>
@@ -235,58 +249,62 @@ const submitD = () => {
               </input>
             </div>
           </form>
-          <button
-          className='btn btn-primary' 
-          onClick={submitC}
-          >
-          CALCULAR
-          </button>
+          <div className='botao'>
+            <button
+            className='btn btn-primary' 
+            onClick={submitC}
+            >
+            CALCULAR
+            </button>
+          </div>
           <h4>RESULTADO: {valor3.dobrau_resultado}</h4>
           </div>
           <div className='box'>
             <h3>DOBRA Z COM B INTERNO</h3>
-            <Image src={dobrazInterno} style={{height:'230px', width:'300px'}}></Image>
+            <Image className='img' src={dobrazInterno} ></Image>
             <form>
             <div>
               <label>Medida A: </label>
               <input 
-              name="dobrau_a"
+              name="dobrazInterno_a"
               type="number"
-              onChange={e => handleChangeC(e)}>
+              onChange={e => handleChangeD(e)}>
               </input>
             </div>
             <div>
               <label>Medida B: </label>
               <input
-              name="dobrau_b" 
+              name="dobrazInterno_b" 
               type={'number'}
-              onChange={e => handleChangeC(e)}>
+              onChange={e => handleChangeD(e)}>
               </input>
             </div>
             <div>
               <label>Medida C: </label>
               <input
-              name="dobrau_c" 
+              name="dobrazInterno_c" 
               type={'number'}
-              onChange={e => handleChangeC(e)}>
+              onChange={e => handleChangeD(e)}>
               </input>
             </div>
             <div>
               <label>Espessura da chapa: </label>
               <input 
               type={'number'}
-              name="dobrau_espessura"
-              onChange={e => handleChangeC(e)}>
+              name="dobrazInterno_espessura"
+              onChange={e => handleChangeD(e)}>
               </input>
             </div>
           </form>
-          <button
-          className='btn btn-primary' 
-          onClick={submitC}
-          >
-          CALCULAR
-          </button>
-          <h4>RESULTADO: {valor3.dobrau_resultado}</h4>
+          <div className='botao'>
+            <button
+            className='btn btn-primary' 
+            onClick={submitD}
+            >
+            CALCULAR
+            </button>
+          </div>
+          <h4>RESULTADO: {valor4.dobrazInterno_resultado}</h4>
           </div>
       </main>
       </>

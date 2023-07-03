@@ -4,18 +4,22 @@ body {
 
 main {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+
 }
 
 .box {
     background-color: white;
-    width: 400px;
-    height: 600px;
-    margin-left: 2em;
-    margin-right: 2em;
+    width: min-content;
+    height: 700px;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
     padding: 30px;
-    border: 1px solid rgb(114, 114, 114);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 label {
@@ -23,16 +27,27 @@ label {
     margin-right: 2px;
 }
 
-Image {
-    width: 300px;
+img {
+    height: 200px;
+    width: 250px;
+}
+
+.botao {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 1em;
+    
 }
 
 input {
     height: 1.2em;
 }
 
+h3 {
+    height: fit-content;
+}
+
 h4 {
-    text-align: center;
-    flex: 1;
-    align-self: flex-end;
+    padding-top: 10px;
 }
