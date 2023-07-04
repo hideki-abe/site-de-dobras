@@ -46,10 +46,20 @@ export default function Home() {
   dobrazInterno_resultado: 0
  }
 
+ const valorInicialDesenvolvimento = {
+  desenvolvimento_a: 0,
+  desenvolvimento_b: 0,
+  desenvolvimento_c: 0,
+  desenvolvimento_d: 0,
+  desenvolvimento_e: 0,
+  desenvolvimento_resultado: 0
+ }
+
  const [valor, setValor] = useState(valorInicialDobraZExterno)
  const [valor2, setValor2] = useState(valorInicialDobraAba)
  const [valor3, setValor3] = useState(valorInicialDobraU)
  const [valor4, setValor4] = useState(valorInicialDobraZInterno)
+ const [valor5, setValor5] = useState(valorInicialDesenvolvimento)
 
  function handleChangeA(event) {
   const { name, value } = event.target;
@@ -71,28 +81,38 @@ export default function Home() {
   setValor4({...valor4, [name]: value});
  }
 
+ function handleChangeE(event) {
+  const { name, value } = event.target;
+  setValor5({...valor5, [name]: value});
+ }
+
  const submitA = () => {
-  const desconto = parseInt(valor.dobraz_a) + parseInt(valor.dobraz_b) + parseInt(valor.dobraz_c) - parseInt(4*(valor.dobraz_espessura))
+  const desconto = parseFloat(valor.dobraz_a) + parseFloat(valor.dobraz_b) + parseFloat(valor.dobraz_c) - parseFloat(4*(valor.dobraz_espessura))
   setValor({...valor, ["resultado"]: desconto})
 }
 
 const submitB = () => {
-  const desconto = parseInt(valor2.aba_a) + parseInt(valor2.aba_b) + 
-                    parseInt(valor2.aba_c) + parseInt(valor2.aba_d)  - parseInt(8*(valor2.aba_espessura))
+  const desconto = parseFloat(valor2.aba_a) + parseFloat(valor2.aba_b) + 
+                    parseFloat(valor2.aba_c) + parseFloat(valor2.aba_d)  - parseFloat(8*(valor2.aba_espessura))
   setValor2({...valor2, ["aba_resultado"]: desconto})
 }
 
 const submitC = () => {
-  const desconto = parseInt(valor3.dobrau_a) + parseInt(valor3.dobrau_b) + 
-                    parseInt(valor3.dobrau_c) - parseInt(4*(valor3.dobrau_espessura))
+  const desconto = parseFloat(valor3.dobrau_a) + parseFloat(valor3.dobrau_b) + 
+                    parseFloat(valor3.dobrau_c) - parseFloat(4*(valor3.dobrau_espessura))
   setValor3({...valor3, ["dobrau_resultado"]: desconto})
 }
 
 const submitD = () => {
-  const desconto = parseInt(valor4.dobrazInterno_a) + parseInt(valor4.dobrazInterno_b) + parseInt(valor4.dobrazInterno_c) - parseInt(4*(valor4.dobrazInterno_espessura))
+  const desconto = parseFloat(valor4.dobrazInterno_a) + parseFloat(valor4.dobrazInterno_b) + parseFloat(valor4.dobrazInterno_c) - parseFloat(4*(valor4.dobrazInterno_espessura))
   setValor4({...valor4, ["dobrazInterno_resultado"]: desconto})
-  console.log(valor4)
-  console.log(desconto)
+}
+
+const submitE = () => {
+  const desenvolvimento = parseFloat(valor5.desenvolvimento_a) + 2*parseFloat(valor5.desenvolvimento_c) - parseFloat(valor5.desenvolvimento_b) + 3.1415*parseFloat(valor5.desenvolvimento_d)
+  + parseFloat(valor5.desenvolvimento_e)
+  setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento})
+  console.log(valor5)
 }
 
     return (
@@ -314,53 +334,53 @@ const submitD = () => {
             <div>
               <label>Medida A: </label>
               <input 
-              name="aba_a"
+              name="desenvolvimento_a"
               type="number"
-              onChange={e => handleChangeB(e)}>
+              onChange={e => handleChangeE(e)}>
               </input>
             </div>
             <div>
               <label>Medida B: </label>
               <input
-              name="aba_b" 
+              name="desenvolvimento_b" 
               type={'number'}
-              onChange={e => handleChangeB(e)}>
+              onChange={e => handleChangeE(e)}>
               </input>
             </div>
             <div>
               <label>Medida C: </label>
               <input
-              name="aba_c" 
+              name="desenvolvimento_c" 
               type={'number'}
-              onChange={e => handleChangeB(e)}>
+              onChange={e => handleChangeE(e)}>
               </input>
             </div>
             <div>
               <label>Medida D: </label>
               <input
-              name="aba_d" 
+              name="desenvolvimento_d" 
               type={'number'}
-              onChange={e => handleChangeB(e)}>
+              onChange={e => handleChangeE(e)}>
               </input>
             </div>
             <div>
               <label>Medida E: </label>
               <input
-              name="aba_e" 
+              name="desenvolvimento_e" 
               type={'number'}
-              onChange={e => handleChangeB(e)}>
+              onChange={e => handleChangeE(e)}>
               </input>
             </div>
           </form>
           <div className='botao'>
             <button
             className='btn btn-primary' 
-            onClick={submitB}
+            onClick={submitE}
             >
             CALCULAR
             </button>
           </div>
-          <h4>RESULTADO: {valor2.aba_resultado}</h4>
+          <h4>RESULTADO: {valor5.desenvolvimento_resultado}</h4>
           </div>
       </main>
       </>
