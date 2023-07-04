@@ -109,10 +109,17 @@ const submitD = () => {
 }
 
 const submitE = () => {
-  const desenvolvimento = parseFloat(valor5.desenvolvimento_a) + 2*parseFloat(valor5.desenvolvimento_c) - parseFloat(valor5.desenvolvimento_b) + 3.1415*parseFloat(valor5.desenvolvimento_d)
-  + parseFloat(valor5.desenvolvimento_e)
+  //const desenvolvimento =  3.1415*parseFloat(valor5.desenvolvimento_d)
+  const calc1 = parseFloat(valor5.desenvolvimento_a) + parseFloat(valor5.desenvolvimento_e)
+  const calc2 = 2*parseFloat(valor5.desenvolvimento_c)
+  const calc3 = - parseFloat(valor5.desenvolvimento_b)
+  const calc4 = 3.1415*(parseFloat(valor5.desenvolvimento_b)/2)
+  const desenvolvimento = 0
   setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento})
-  console.log(valor5)
+  console.log(calc1)
+  console.log(calc2)
+  console.log(calc3)
+  console.log(calc4)
 }
 
     return (
