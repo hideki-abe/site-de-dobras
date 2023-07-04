@@ -114,12 +114,9 @@ const submitE = () => {
   const calc2 = 2*parseFloat(valor5.desenvolvimento_c)
   const calc3 = - parseFloat(valor5.desenvolvimento_b)
   const calc4 = 3.1415*(parseFloat(valor5.desenvolvimento_b)/2)
-  const desenvolvimento = 0
+  const desenvolvimento = calc1 + calc2 + calc3 + calc4
   setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento})
-  console.log(calc1)
-  console.log(calc2)
-  console.log(calc3)
-  console.log(calc4)
+
 }
 
     return (
@@ -358,14 +355,6 @@ const submitE = () => {
               <label>Medida C: </label>
               <input
               name="desenvolvimento_c" 
-              type={'number'}
-              onChange={e => handleChangeE(e)}>
-              </input>
-            </div>
-            <div>
-              <label>Medida D: </label>
-              <input
-              name="desenvolvimento_d" 
               type={'number'}
               onChange={e => handleChangeE(e)}>
               </input>
