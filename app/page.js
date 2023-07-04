@@ -6,6 +6,7 @@ import dobraz from '../public/dobra-z.png'
 import dobrau from '../public/dobra-u.png'
 import dobraaba from '../public/dobra-aba.png'
 import dobrazInterno from '../public/dobra-z-interno.png'
+import desenvolvimento from '../public/desenvolvimento.png'
 import React, { useEffect, useState } from "react";
 import "bootswatch/dist/minty/bootstrap.min.css"
 
@@ -305,6 +306,61 @@ const submitD = () => {
             </button>
           </div>
           <h4>RESULTADO: {valor4.dobrazInterno_resultado}</h4>
+          </div>
+          <div className='box'>
+            <h3>DESENVOVIMENTO DE CALANDRA</h3>
+            <Image className='img' src={desenvolvimento}></Image>
+            <form>
+            <div>
+              <label>Medida A: </label>
+              <input 
+              name="aba_a"
+              type="number"
+              onChange={e => handleChangeB(e)}>
+              </input>
+            </div>
+            <div>
+              <label>Medida B: </label>
+              <input
+              name="aba_b" 
+              type={'number'}
+              onChange={e => handleChangeB(e)}>
+              </input>
+            </div>
+            <div>
+              <label>Medida C: </label>
+              <input
+              name="aba_c" 
+              type={'number'}
+              onChange={e => handleChangeB(e)}>
+              </input>
+            </div>
+            <div>
+              <label>Medida D: </label>
+              <input
+              name="aba_d" 
+              type={'number'}
+              onChange={e => handleChangeB(e)}>
+              </input>
+            </div>
+            <div>
+              <label>Medida E: </label>
+              <input
+              name="aba_e" 
+              type={'number'}
+              onChange={e => handleChangeB(e)}>
+              </input>
+            </div>
+          </form>
+          <div className='botao'>
+            <button
+            className='btn btn-primary' 
+            onClick={submitB}
+            >
+            CALCULAR
+            </button>
+          </div>
+          <h4>RESULTADO: {valor2.aba_resultado}</h4>
           </div>
       </main>
       </>
