@@ -87,24 +87,24 @@ export default function Home() {
 
  const submitA = () => {
   const desconto = parseFloat(valor.dobraz_a) + parseFloat(valor.dobraz_b) + parseFloat(valor.dobraz_c) - parseFloat(4*(valor.dobraz_espessura))
-  setValor({...valor, ["resultado"]: desconto})
+  setValor({...valor, ["resultado"]: desconto.toFixed(2)})
 }
 
 const submitB = () => {
   const desconto = parseFloat(valor2.aba_a) + parseFloat(valor2.aba_b) + 
                     parseFloat(valor2.aba_c) + parseFloat(valor2.aba_d)  - parseFloat(8*(valor2.aba_espessura))
-  setValor2({...valor2, ["aba_resultado"]: desconto})
+  setValor2({...valor2, ["aba_resultado"]: desconto.toFixed(2)})
 }
 
 const submitC = () => {
   const desconto = parseFloat(valor3.dobrau_a) + parseFloat(valor3.dobrau_b) + 
                     parseFloat(valor3.dobrau_c) - parseFloat(4*(valor3.dobrau_espessura))
-  setValor3({...valor3, ["dobrau_resultado"]: desconto})
+  setValor3({...valor3, ["dobrau_resultado"]: desconto.toFixed(2)})
 }
 
 const submitD = () => {
   const desconto = parseFloat(valor4.dobrazInterno_a) + parseFloat(valor4.dobrazInterno_b) + parseFloat(valor4.dobrazInterno_c) - parseFloat(4*(valor4.dobrazInterno_espessura))
-  setValor4({...valor4, ["dobrazInterno_resultado"]: desconto})
+  setValor4({...valor4, ["dobrazInterno_resultado"]: desconto.toFixed(2)})
 }
 
 const submitE = () => {
@@ -112,9 +112,9 @@ const submitE = () => {
   const calc1 = parseFloat(valor5.desenvolvimento_a) + parseFloat(valor5.desenvolvimento_d)
   const calc2 = 2*parseFloat(valor5.desenvolvimento_c)
   const calc3 = - parseFloat(valor5.desenvolvimento_b)
-  const calc4 = 3.1415*(parseFloat(valor5.desenvolvimento_b)/2)
-  const desenvolvimento = calc1 + calc2 + calc3 + calc4
-  setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento})
+  const calc4 = Math.PI*(parseFloat(valor5.desenvolvimento_b)/2)
+  const desenvolvimento = (calc1 + calc2 + calc3 + calc4)
+  setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento.toFixed(2)})
 
 }
 
