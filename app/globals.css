@@ -33,6 +33,12 @@ label {
 img {
     height: 200px;
     width: 250px;
+    margin-bottom: 2em;
+}
+
+.interno {
+    height: 200px;
+    width: 200px;
 }
 
 .botao {

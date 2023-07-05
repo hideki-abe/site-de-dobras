@@ -7,6 +7,7 @@ import dobrau from '../public/dobra-u.png'
 import dobraaba from '../public/dobra-aba.png'
 import dobrazInterno from '../public/dobra-z-interno.png'
 import desenvolvimento from '../public/desenvolvimento.png'
+import interno from '../public/interno.png'
 import React, { useEffect, useState } from "react";
 import "bootswatch/dist/minty/bootstrap.min.css"
 
@@ -55,11 +56,18 @@ export default function Home() {
   desenvolvimento_resultado: 0
  }
 
+ const valorInicialCalandraInterna = {
+  diametro: 0,
+  espessura: 0,
+  resultado: 0
+ }
+
  const [valor, setValor] = useState(valorInicialDobraZExterno)
  const [valor2, setValor2] = useState(valorInicialDobraAba)
  const [valor3, setValor3] = useState(valorInicialDobraU)
  const [valor4, setValor4] = useState(valorInicialDobraZInterno)
  const [valor5, setValor5] = useState(valorInicialDesenvolvimento)
+ const [valor6, setValor6] = useState(valorInicialCalandraInterna)
 
  function handleChangeA(event) {
   const { name, value } = event.target;
@@ -84,6 +92,11 @@ export default function Home() {
  function handleChangeE(event) {
   const { name, value } = event.target;
   setValor5({...valor5, [name]: value});
+ }
+
+ function handleChangeF(event) {
+  const { name, value } = event.target;
+  setValor6({...valor6, [name]: value});
  }
 
  const submitA = () => {
@@ -127,6 +140,15 @@ const submitE = () => {
 
   setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento.toFixed(2)})
 
+}
+
+const submitF = () => {
+  //calculos 
+  const calc = parseFloat(valor6.diametro) + parseFloat(valor6.espessura)
+  const resultado = Math.PI*parseFloat(calc)
+  setValor6({...valor6, ["resultado"]: resultado.toFixed(2)})
+  console.log(valor6)
+  
 }
 
     return (
@@ -385,16 +407,47 @@ const submitE = () => {
               onChange={e => handleChangeE(e)}>
               </input>
             </div>
-          </form>
-          <div className='botao'>
-            <button
-            className='btn btn-primary' 
-            onClick={submitE}
-            >
-            CALCULAR
-            </button>
+            </form>
+            <div className='botao'>
+              <button
+              className='btn btn-primary' 
+              onClick={submitE}
+              >
+              CALCULAR
+              </button>
+            </div>
+            <h4>RESULTADO: {valor5.desenvolvimento_resultado}</h4>
           </div>
-          <h4>RESULTADO: {valor5.desenvolvimento_resultado}</h4>
+          <div className='box'>
+            <h3>DESENVOVIMENTO DE CALANDRA</h3>
+            <Image className='img interno' src={interno}></Image>
+            <form>
+            <div>
+              <label>Diâmetro interno: </label>
+              <input 
+              name="diametro"
+              type="number"
+              onChange={e => handleChangeF(e)}>
+              </input>
+            </div>
+            <div>
+              <label>Espessura da chapa: </label>
+              <input 
+              type={'number'}
+              name="espessura"
+              onChange={e => handleChangeF(e)}>
+              </input>
+            </div>
+            </form>
+            <div className='botao'>
+              <button
+              className='btn btn-primary' 
+              onClick={submitF}
+              >
+              CALCULAR
+              </button>
+            </div>
+            <h4>RESULTADO: {valor6.resultado}</h4>
           </div>
       </main>
       </>
