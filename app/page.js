@@ -51,6 +51,7 @@ export default function Home() {
   desenvolvimento_b: 0,
   desenvolvimento_c: 0,
   desenvolvimento_d: 0,
+  desenvolvimento_espessura: 0,
   desenvolvimento_resultado: 0
  }
 
@@ -108,12 +109,17 @@ const submitD = () => {
 }
 
 const submitE = () => {
-  //const desenvolvimento =  3.1415*parseFloat(valor5.desenvolvimento_d)
+  const diametro = parseFloat(valor5.desenvolvimento_b) - parseFloat(valor5.desenvolvimento_espessura)
   const calc1 = parseFloat(valor5.desenvolvimento_a) + parseFloat(valor5.desenvolvimento_d)
   const calc2 = 2*parseFloat(valor5.desenvolvimento_c)
-  const calc3 = - parseFloat(valor5.desenvolvimento_b)
-  const calc4 = Math.PI*(parseFloat(valor5.desenvolvimento_b)/2)
-  const desenvolvimento = (calc1 + calc2 + calc3 + calc4)
+  const calc3 = - diametro
+  const calc4 = Math.PI*(parseFloat(diametro)/2)
+  let desenvolvimento = parseFloat(calc1 + calc2 + calc3 + calc4)
+
+  if(calc1 != 0) {
+    desenvolvimento = desenvolvimento - 4*parseFloat(valor5.desenvolvimento_espessura)
+  }
+
   setValor5({...valor5, ["desenvolvimento_resultado"]: desenvolvimento.toFixed(2)})
 
 }
@@ -363,6 +369,14 @@ const submitE = () => {
               <input
               name="desenvolvimento_d" 
               type={'number'}
+              onChange={e => handleChangeE(e)}>
+              </input>
+            </div>
+            <div>
+              <label>Espessura da chapa: </label>
+              <input 
+              type={'number'}
+              name="desenvolvimento_espessura"
               onChange={e => handleChangeE(e)}>
               </input>
             </div>
