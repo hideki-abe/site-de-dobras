@@ -51,7 +51,6 @@ export default function Home() {
   desenvolvimento_b: 0,
   desenvolvimento_c: 0,
   desenvolvimento_d: 0,
-  desenvolvimento_e: 0,
   desenvolvimento_resultado: 0
  }
 
@@ -110,7 +109,7 @@ const submitD = () => {
 
 const submitE = () => {
   //const desenvolvimento =  3.1415*parseFloat(valor5.desenvolvimento_d)
-  const calc1 = parseFloat(valor5.desenvolvimento_a) + parseFloat(valor5.desenvolvimento_e)
+  const calc1 = parseFloat(valor5.desenvolvimento_a) + parseFloat(valor5.desenvolvimento_d)
   const calc2 = 2*parseFloat(valor5.desenvolvimento_c)
   const calc3 = - parseFloat(valor5.desenvolvimento_b)
   const calc4 = 3.1415*(parseFloat(valor5.desenvolvimento_b)/2)
@@ -360,9 +359,9 @@ const submitE = () => {
               </input>
             </div>
             <div>
-              <label>Medida E: </label>
+              <label>Medida D: </label>
               <input
-              name="desenvolvimento_e" 
+              name="desenvolvimento_d" 
               type={'number'}
               onChange={e => handleChangeE(e)}>
               </input>
